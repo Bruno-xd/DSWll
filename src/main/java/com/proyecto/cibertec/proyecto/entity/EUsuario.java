@@ -1,26 +1,27 @@
 package com.proyecto.cibertec.proyecto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mi_tec.tiendaBackEnd.Security.Entity.Rol;
 import java.util.HashSet;
+
+import com.proyecto.cibertec.proyecto.security.Entity.Rol;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
-import javax.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 import java.util.List;
 import java.util.Set;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -34,7 +35,6 @@ public class EUsuario {
 
     @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL)
     private List<EProducto> productos;
-    @NotNull
     @Column(unique = true)
     private String nombreUsuario;
     private String nombreApellido;
@@ -48,7 +48,6 @@ public class EUsuario {
     @JsonIgnore
     private ECarrito carrito;
 
-    @NotNull
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id"))
