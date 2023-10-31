@@ -1,8 +1,8 @@
-package com.proyecto.cibertec.proyecto.interfaces;
+package com.proyecto.cibertec.proyecto.Interfaces;
 
-import com.proyecto.cibertec.proyecto.entity.ECarrito;
-import com.proyecto.cibertec.proyecto.entity.EProducto;
-import com.proyecto.cibertec.proyecto.entity.EUsuario;
+import com.proyecto.cibertec.proyecto.Entity.ECarrito;
+import com.proyecto.cibertec.proyecto.Entity.EProducto;
+import com.proyecto.cibertec.proyecto.Entity.EUsuario;
 
 import java.util.List;
 

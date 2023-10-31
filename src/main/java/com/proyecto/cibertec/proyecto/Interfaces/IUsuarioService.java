@@ -1,6 +1,6 @@
-package com.proyecto.cibertec.proyecto.interfaces;
+package com.proyecto.cibertec.proyecto.Interfaces;
 
-import com.proyecto.cibertec.proyecto.entity.EUsuario;
+import com.proyecto.cibertec.proyecto.Entity.EUsuario;
 
 import java.util.List;
 import java.util.Optional;

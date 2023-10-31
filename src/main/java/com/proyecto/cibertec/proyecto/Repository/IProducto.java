@@ -1,6 +1,6 @@
-package com.proyecto.cibertec.proyecto.repository;
+package com.proyecto.cibertec.proyecto.Repository;
 
-import com.proyecto.cibertec.proyecto.entity.EProducto;
+import com.proyecto.cibertec.proyecto.Entity.EProducto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

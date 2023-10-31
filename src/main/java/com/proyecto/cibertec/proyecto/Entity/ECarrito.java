@@ -1,4 +1,4 @@
-package com.proyecto.cibertec.proyecto.entity;
+package com.proyecto.cibertec.proyecto.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;

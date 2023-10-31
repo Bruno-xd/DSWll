@@ -1,6 +1,6 @@
-package com.proyecto.cibertec.proyecto.interfaces;
+package com.proyecto.cibertec.proyecto.Interfaces;
 
-import com.proyecto.cibertec.proyecto.entity.EProducto;
+import com.proyecto.cibertec.proyecto.Entity.EProducto;
 
 import java.util.List;
 
