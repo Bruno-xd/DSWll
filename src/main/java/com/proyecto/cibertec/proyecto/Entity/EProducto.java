@@ -20,10 +20,10 @@ public class EProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_producto;
     
-    @JsonIgnoreProperties({"productos", "password"})
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_proveedor")
-    private EUsuario proveedor;
+//    @JsonIgnoreProperties({"productos", "password"})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_proveedor")
+//    private EUsuario proveedor;
   
     private String nombre;
     private String etiquetas;

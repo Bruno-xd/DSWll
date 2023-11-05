@@ -33,8 +33,8 @@ public class EUsuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
 
-    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL)
-    private List<EProducto> productos;
+//    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL)
+//    private List<EProducto> productos;
     @Column(unique = true)
     private String nombreUsuario;
     private String nombreApellido;
