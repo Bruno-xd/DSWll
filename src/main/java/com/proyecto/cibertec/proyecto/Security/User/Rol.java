@@ -1,6 +1,5 @@
-package com.proyecto.cibertec.proyecto.security.Entity;
+package com.proyecto.cibertec.proyecto.Security.User;
 
-import com.proyecto.cibertec.proyecto.security.Enums.RolNombre;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,11 +11,11 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Enumerated(EnumType.STRING)
-    private RolNombre rolNombre;
+    private Role Role;
     public Rol(){}
 
-    public Rol(RolNombre rolNombre) {
-        this.rolNombre = rolNombre;
+    public Rol(Role Role) {
+        this.Role = Role;
     }
     
 }

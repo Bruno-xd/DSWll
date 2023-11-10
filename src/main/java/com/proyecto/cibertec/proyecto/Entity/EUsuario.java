@@ -3,7 +3,7 @@ package com.proyecto.cibertec.proyecto.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 
-import com.proyecto.cibertec.proyecto.security.Entity.Rol;
+import com.proyecto.cibertec.proyecto.Security.User.Rol;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -11,9 +11,8 @@ import lombok.Setter;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
-import java.util.List;
+
 import java.util.Set;
 
 import jakarta.persistence.Column;
