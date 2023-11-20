@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -26,10 +27,11 @@ public class SecurityConfig {
             .csrf(csrf -> 
                 csrf
                 .disable())
-            .authorizeHttpRequests(authRequest ->
+            .authorizeHttpRequests((authRequest) ->{
               authRequest
-                .requestMatchers("/auth/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
+                      .requestMatchers(new AntPathRequestMatcher("/prod/**")).permitAll().anyRequest().authenticated();
+            }
                 )
             .sessionManagement(sessionManager->
                 sessionManager 
