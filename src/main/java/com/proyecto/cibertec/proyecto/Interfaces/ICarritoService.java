@@ -2,12 +2,12 @@ package com.proyecto.cibertec.proyecto.Interfaces;
 
 import com.proyecto.cibertec.proyecto.Entity.ECarrito;
 import com.proyecto.cibertec.proyecto.Entity.EProducto;
-import com.proyecto.cibertec.proyecto.Entity.EUsuario;
+import com.proyecto.cibertec.proyecto.Security.User.User;
 
 import java.util.List;
 
 public interface ICarritoService {
-    public void crearCarrito(EUsuario usuario);
+    public void crearCarrito(User usuario);
 
     public void agregarProducto(Long idCarrito, Long idProducto);
 

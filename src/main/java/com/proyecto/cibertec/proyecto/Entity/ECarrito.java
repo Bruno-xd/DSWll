@@ -2,6 +2,8 @@ package com.proyecto.cibertec.proyecto.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.proyecto.cibertec.proyecto.Security.User.User;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
@@ -25,9 +27,9 @@ public class ECarrito {
     private Long id_carrito;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id")
     @JsonIgnore
-    private EUsuario usuario;
+    private User usuario;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "carrito_productos",

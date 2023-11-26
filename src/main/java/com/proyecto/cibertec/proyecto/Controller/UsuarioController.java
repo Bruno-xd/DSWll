@@ -1,7 +1,7 @@
 package com.proyecto.cibertec.proyecto.Controller;
 
-import com.proyecto.cibertec.proyecto.Entity.EUsuario;
 import com.proyecto.cibertec.proyecto.Interfaces.IUsuarioService;
+import com.proyecto.cibertec.proyecto.Security.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +15,11 @@ public class UsuarioController {
     IUsuarioService iUserS;
 
     @GetMapping("/usuarios")
-    public List<EUsuario> verUsuarios() {
+    public List<User> verUsuarios() {
         return iUserS.obtenerUsuarios();
     }
     @GetMapping("/usuario/buscar/{id}")
-    public EUsuario buscarUser(@PathVariable Long id) {
+    public User buscarUser(@PathVariable Long id) {
         return iUserS.obtenerUsuarioPorId(id);
     }
     @DeleteMapping("/usuario/borrar/{id}")

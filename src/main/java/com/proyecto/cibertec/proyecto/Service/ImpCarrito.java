@@ -2,11 +2,11 @@ package com.proyecto.cibertec.proyecto.Service;
 
 import com.proyecto.cibertec.proyecto.Entity.ECarrito;
 import com.proyecto.cibertec.proyecto.Entity.EProducto;
-import com.proyecto.cibertec.proyecto.Entity.EUsuario;
 import com.proyecto.cibertec.proyecto.Interfaces.ICarritoService;
 import com.proyecto.cibertec.proyecto.Repository.ICarrito;
 import com.proyecto.cibertec.proyecto.Repository.IProducto;
 import com.proyecto.cibertec.proyecto.Repository.IUsuario;
+import com.proyecto.cibertec.proyecto.Security.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class ImpCarrito implements ICarritoService {
     private IUsuario usuarioRepository;
 
     @Override
-    public void crearCarrito(EUsuario usuario) {
+    public void crearCarrito(User usuario) {
         ECarrito carrito = new ECarrito();
         carrito.setUsuario(usuario);
         carritoRepository.save(carrito);
@@ -34,8 +34,8 @@ public class ImpCarrito implements ICarritoService {
     @Override
     public void agregarProducto(Long idUsuario, Long idProducto) {
         try {
-            EUsuario usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-            ECarrito carrito = usuario.getCarrito(); // Obtener el carrito asociado al usuario
+            User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+            /*ECarrito carrito = usuario.getCarrito(); // Obtener el carrito asociado al usuario
             if (carrito == null) {
                 carrito = new ECarrito();
                 carrito.setUsuario(usuario);
@@ -44,7 +44,7 @@ public class ImpCarrito implements ICarritoService {
             EProducto producto = productoRepository.findById(idProducto).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
             carrito.agregarProducto(producto);
-            carritoRepository.save(carrito);
+            carritoRepository.save(carrito);*/
         } catch (Exception e) {
             System.err.println("Error al agregar producto al carrito: " + e.getMessage());
             throw e;
@@ -53,14 +53,14 @@ public class ImpCarrito implements ICarritoService {
 
     @Override
     public void eliminarProducto(Long idUsuario, Long idProducto) {
-        EUsuario usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        ECarrito carrito = usuario.getCarrito();
+        User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        /*ECarrito carrito = usuario.getCarrito();
         if (carrito == null) {
             throw new RuntimeException("El carrito del usuario está vacío");
         }
         EProducto producto = productoRepository.findById(idProducto).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         carrito.eliminarProducto(producto);
-        carritoRepository.save(carrito);
+        carritoRepository.save(carrito);*/
     }
 
     @Override
@@ -71,7 +71,8 @@ public class ImpCarrito implements ICarritoService {
 
     @Override
     public ECarrito getCarritoByUsuario(Long idUsuario) {
-        EUsuario usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        return usuario.getCarrito();
+        User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        //return usuario.getCarrito();
+        return new ECarrito();
     }
 }
