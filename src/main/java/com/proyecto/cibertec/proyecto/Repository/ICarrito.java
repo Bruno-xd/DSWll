@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICarrito extends JpaRepository<ECarrito, Long> {
+
 }

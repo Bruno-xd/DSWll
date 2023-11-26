@@ -7,7 +7,7 @@ import com.proyecto.cibertec.proyecto.Security.User.User;
 import java.util.List;
 
 public interface ICarritoService {
-    public void crearCarrito(User usuario);
+    public ECarrito crearCarrito(User usuario);
 
     public void agregarProducto(Long idCarrito, Long idProducto);
 

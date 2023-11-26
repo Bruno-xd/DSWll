@@ -26,7 +26,7 @@ public class ECarrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_carrito;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "carrito")
     @JoinColumn(name = "id")
     @JsonIgnore
     private User usuario;

@@ -1,5 +1,6 @@
 package com.proyecto.cibertec.proyecto.Security.Auth;
 
+import com.proyecto.cibertec.proyecto.Entity.ECarrito;
 import com.proyecto.cibertec.proyecto.Interfaces.ICarritoService;
 import com.proyecto.cibertec.proyecto.Security.User.User;
 import com.proyecto.cibertec.proyecto.Service.ImpCarrito;
@@ -31,9 +32,12 @@ public class AuthController {
     @PostMapping(value = "register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request)
     {
+
         ResponseEntity responseEntity = ResponseEntity.ok(authService.register(request));
         User createdUser = usuarioService.obtenerUsuarioPorEmail(request.getUsername());
-        carritoService.crearCarrito(createdUser);
+        ECarrito eCarrito = carritoService.crearCarrito(createdUser);
+        createdUser.setCarrito(eCarrito);
+        usuarioService.guardarUsuario(createdUser);
         return responseEntity;
     }
 }

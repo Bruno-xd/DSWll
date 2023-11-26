@@ -25,17 +25,18 @@ public class ImpCarrito implements ICarritoService {
     private IUsuario usuarioRepository;
 
     @Override
-    public void crearCarrito(User usuario) {
+    public ECarrito crearCarrito(User usuario) {
         ECarrito carrito = new ECarrito();
         carrito.setUsuario(usuario);
-        carritoRepository.save(carrito);
+        return carritoRepository.save(carrito);
+
     }
 
     @Override
     public void agregarProducto(Long idUsuario, Long idProducto) {
         try {
             User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-            /*ECarrito carrito = usuario.getCarrito(); // Obtener el carrito asociado al usuario
+            ECarrito carrito = usuario.getCarrito(); // Obtener el carrito asociado al usuario
             if (carrito == null) {
                 carrito = new ECarrito();
                 carrito.setUsuario(usuario);
@@ -44,7 +45,7 @@ public class ImpCarrito implements ICarritoService {
             EProducto producto = productoRepository.findById(idProducto).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
             carrito.agregarProducto(producto);
-            carritoRepository.save(carrito);*/
+            carritoRepository.save(carrito);
         } catch (Exception e) {
             System.err.println("Error al agregar producto al carrito: " + e.getMessage());
             throw e;
@@ -72,7 +73,6 @@ public class ImpCarrito implements ICarritoService {
     @Override
     public ECarrito getCarritoByUsuario(Long idUsuario) {
         User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        //return usuario.getCarrito();
-        return new ECarrito();
+        return usuario.getCarrito();
     }
 }
