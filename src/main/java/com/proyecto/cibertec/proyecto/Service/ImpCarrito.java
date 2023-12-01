@@ -55,13 +55,13 @@ public class ImpCarrito implements ICarritoService {
     @Override
     public void eliminarProducto(Long idUsuario, Long idProducto) {
         User usuario = usuarioRepository.findById(idUsuario).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        /*ECarrito carrito = usuario.getCarrito();
+        ECarrito carrito = usuario.getCarrito();
         if (carrito == null) {
             throw new RuntimeException("El carrito del usuario está vacío");
         }
         EProducto producto = productoRepository.findById(idProducto).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         carrito.eliminarProducto(producto);
-        carritoRepository.save(carrito);*/
+        carritoRepository.save(carrito);
     }
 
     @Override
