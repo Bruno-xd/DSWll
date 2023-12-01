@@ -22,6 +22,8 @@ public class UsuarioController {
     public User buscarUser(@PathVariable Long id) {
         return iUserS.obtenerUsuarioPorId(id);
     }
+    @GetMapping("/usuario/buscarE/{email}")
+    public User buscarUserEmail(@PathVariable String email) {return iUserS.obtenerUsuarioPorEmail(email);}
     @DeleteMapping("/usuario/borrar/{id}")
     public ResponseEntity<String> borrarUser(@PathVariable Long id) {
         iUserS.eliminarUsuario(id);

@@ -30,7 +30,10 @@ public class SecurityConfig {
             .authorizeHttpRequests((authRequest) ->{
               authRequest
                 .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
-                      .requestMatchers(new AntPathRequestMatcher("/prod/**")).permitAll().anyRequest().authenticated();
+                      .requestMatchers(new AntPathRequestMatcher("/prod/**")).permitAll()
+                      .requestMatchers(new AntPathRequestMatcher("/usuario/**")).permitAll()
+                      .requestMatchers(new AntPathRequestMatcher("/carrito/**")).permitAll().
+                      anyRequest().authenticated();
             }
                 )
             .sessionManagement(sessionManager->
